@@ -1,0 +1,14 @@
+version: '2'
+
+services:
+  kafka-admin-api:
+    container_name: devtooling-kafka-admin-api
+    image: devtooling/kafka-admin-api
+    environment:
+      SPRING_APPLICATION_JSON: >
+                                 {"kafka.brokersUri":"localhost:9092",
+                                  "kafka.zookeeperUri":"localhost:2181",
+                                  "logging.level.org.trustedanalytics":"DEBUG"}
+
+    ports:
+      - "18080:18080"

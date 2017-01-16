@@ -1,0 +1,29 @@
+server:
+  port: 18080
+app:
+  name: kafka-admin-api
+  
+endpoints:
+  cors:
+    allowed-origins: https://cloud.pingidentity.io
+
+security:
+  oauth2:
+    resource:
+      aud: api.pingidentity.com
+      jwt:
+        keyUri: https://auth.pingidentity.io:9031/ext/oauth/jwks
+
+kafka:
+  brokersUri: kafka.service.consul:9092
+  zookeeperUri: 1.kafka.zookeeper:2181
+
+logging:
+  level:
+    org:
+      trustedanalytics: DEBUG
+
+spring:
+  output:
+    ansi:
+      enabled: never

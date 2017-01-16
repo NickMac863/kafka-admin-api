@@ -1,0 +1,31 @@
+server:
+  port: 18080
+app:
+  name: kafka-admin-api
+  
+endpoints:
+  cors:
+    allowed-origins: http://localhost:8888
+
+security:
+  oauth2:
+    client:
+      clientId: devtooling-infra-topic-management
+    resource:
+      aud: api.pingidentity.com
+      jwt:
+        keyUri: https://auth.pingidentity.io:9031/ext/oauth/jwks
+
+kafka:
+  brokersUri: localhost:9092
+  zookeeperUri: localhost:2181
+
+logging:
+  level:
+    org:
+      trustedanalytics: DEBUG
+
+spring:
+  output:
+    ansi:
+      enabled: never
